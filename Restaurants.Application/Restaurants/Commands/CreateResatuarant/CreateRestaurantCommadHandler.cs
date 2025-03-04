@@ -8,10 +8,10 @@ using Restaurants.Domain.Repositories;
 namespace Restaurants.Application.Restaurants.Command.CreateResatuarant;
 
 public class CreateRestaurantCommadHandler(
-    ILogger logger,IMapper mapper,
-    IRestaurantRepository restaurantRepository) : IRequestHandler<CreateRestaurantCommad, int>
+    ILogger<CreateRestaurantCommadHandler> logger,IMapper mapper,
+    IRestaurantRepository restaurantRepository) : IRequestHandler<CreateRestaurantCommand, int>
 {
-    public async Task<int> Handle(CreateRestaurantCommad request, CancellationToken cancellationToken)
+    public async Task<int> Handle(CreateRestaurantCommand request, CancellationToken cancellationToken)
     {
         logger.LogInformation($"Creating Restaurant");
         var restaurant = mapper.Map<Restaurant>(request);

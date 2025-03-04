@@ -14,7 +14,7 @@ public static class ServiceCollectionExtensions
         IConfiguration configuration)
     {
         services.AddDbContext<RestaurantDbContext>(
-            options => options.UseSqlServer(configuration.GetConnectionString("RestaurantDB")));
+            options => options.UseSqlServer(configuration.GetConnectionString("RestaurantsDb")));
         services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
         services.AddScoped<IRestaurantRepository,RestaurantRepository>();
         return services;

@@ -3,7 +3,7 @@ using Restaurants.Application.Restaurants.Dtos;
 
 namespace Restaurants.Application.Restaurants.Command.CreateResatuarant;
 
-public class CreateResaurantCommandValidator : AbstractValidator<CreateRestaurantCommad>
+public class CreateResaurantCommandValidator : AbstractValidator<CreateRestaurantCommand>
 {
     private readonly List<string> ValidCategories = ["Italian", "Mexicon", "Chinese", "SouthIndian"];
     public CreateResaurantCommandValidator()
