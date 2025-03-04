@@ -1,18 +1,21 @@
 using Restaurants.Application.Extensions;
 using Restaurants.Infrastructure.Extensions;
 using Restaurants.Infrastructure.Seeder;
-
+using Serilog;
+using Serilog.Formatting.Compact;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Host.UseSerilog((hostingContext, loggerConfiguration) => loggerConfiguration
+    .ReadFrom.Configuration(hostingContext.Configuration));
+
 var app = builder.Build();
 var scope= app.Services.CreateScope();
 
