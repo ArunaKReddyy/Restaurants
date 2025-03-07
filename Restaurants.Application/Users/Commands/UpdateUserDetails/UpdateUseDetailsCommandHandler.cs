@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurants.Application.Users.Commands
+namespace Restaurants.Application.Users.Commands.UpdateUserDetails
 {
     class UpdateUseDetailsCommandHandler(
         ILogger<UpdateUseDetailsCommand> logger,
@@ -25,9 +25,9 @@ namespace Restaurants.Application.Users.Commands
             var dbUser = await userStore.FindByIdAsync(user.UserId, cancellationToken);
 
             dbUser.Nationality = request.Nationality;
-            dbUser.DateOfBirth= request.DateOfBirth;
+            dbUser.DateOfBirth = request.DateOfBirth;
 
-            await userStore.UpdateAsync(dbUser,cancellationToken);
+            await userStore.UpdateAsync(dbUser, cancellationToken);
 
         }
     }
