@@ -31,16 +31,13 @@ internal class RestaurantSeeder(RestaurantDbContext dbContext) : IRestaurantSeed
         return new List<IdentityRole>
         {
             new() {
-                Name = UserRoles.Admin,
-                NormalizedName = "ADMIN"
+                Name = UserRoles.Admin
             },
             new() {
-                Name = UserRoles.User,
-                NormalizedName = "USER"
+                Name = UserRoles.User
             },
             new() {
                 Name = UserRoles.Owner,
-                NormalizedName = "USER"
             }
 
         };

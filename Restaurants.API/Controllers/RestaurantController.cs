@@ -7,6 +7,7 @@ using Restaurants.Application.Restaurants.Commands.UpdateRestaurant;
 using Restaurants.Application.Restaurants.Dtos;
 using Restaurants.Application.Restaurants.Queries.GetAllRestaurant;
 using Restaurants.Application.Restaurants.Queries.GetRestaurantsById;
+using Restaurants.Domain.Constants;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -31,6 +32,7 @@ public class RestaurantController(IMediator mediator) : ControllerBase
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
+    [Authorize(Roles = UserRoles.Owner)]
     public async Task<IActionResult> CreateRestaurant([FromBody] CreateRestaurantCommand command)
     {
         var restaurantId = await mediator.Send(command);
