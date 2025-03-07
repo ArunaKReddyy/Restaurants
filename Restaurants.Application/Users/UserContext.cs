@@ -1,13 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Restaurants.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Restaurants.Application.User
+namespace Restaurants.Application.Users
 {
     public class UserContext(IHttpContextAccessor httpContextAccessor) : IUserContext
     {
