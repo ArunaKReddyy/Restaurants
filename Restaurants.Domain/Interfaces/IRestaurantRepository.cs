@@ -9,4 +9,5 @@ public interface IRestaurantRepository
     Task<Restaurant?> GetById(int id);
     Task Delete(Restaurant entity);
     Task SaveChanges();
+    Task<(IEnumerable<Restaurant>, int)> GetAllMatchingAsync(string searchPhrase, int pageNumber, int pageSize);
 }
